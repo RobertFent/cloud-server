@@ -1,2 +1,5 @@
 **/.env
-**/configs/
+tailscale/configs/
+home-assistant/configs/.storage/
+home-assistant/configs/*.log*
+home-assistant/configs/*.db-*

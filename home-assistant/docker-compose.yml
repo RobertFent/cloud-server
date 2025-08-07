@@ -7,7 +7,7 @@ services:
     volumes:
       - ./configs:/config
       - /etc/localtime:/etc/localtime:ro
-      # - /run/dbus:/run/dbus:ro
+      - /home/robot/.ssh/remote-login:/root/.ssh/remote-login:ro # mount ssh key for remote login to local server
     environment:
       - VIRTUAL_HOST=homeassistant.robertfent.com
       - VIRTUAL_PORT=8123
@@ -16,8 +16,6 @@ services:
     restart: unless-stopped
     networks:
       - nginxproxy
-    # privileged: true
-    # network_mode: host
 
 networks:
   nginxproxy:

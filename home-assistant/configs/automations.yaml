@@ -1,0 +1,7 @@
+- alias: "Shutdown local server at 11 PM"
+  trigger:
+    platform: time
+    at: "23:00:00"
+  action:
+    service: shell_command.shutdown_local_server
+  mode: single

@@ -18,3 +18,22 @@ http:
   trusted_proxies:
     - 172.22.0.0/16 
 ```
+
+## Setup for neat integration with local server
+### Create ssh keys for login from cloud server to local server
+```sh
+ssh-keygen -t ed25519 -f ~/.ssh/remote-login
+ssh-copy-id -i ~/.ssh/remote-login.pub robot@100.78.154.44
+```
+verify
+```sh
+ssh -i ~/.ssh/remote-login robot@100.78.154.44
+```
+
+### Make shutdown on local without password
+```sh
+sudo visudo
+>>>>>>
+# enable shutdown without password
+robot ALL=(ALL) NOPASSWD: /sbin/shutdown
+```
