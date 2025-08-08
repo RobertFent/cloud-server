@@ -1,7 +1,21 @@
-- alias: "Shutdown local server at 11 PM"
+- alias: Shutdown local server at 11 PM
   trigger:
     platform: time
-    at: "23:00:00"
+    at: '23:00:00'
   action:
     service: shell_command.shutdown_local_server
+  mode: single
+  id: 4908676dabd249fba442d1ce14b9b4a9
+- id: '1754644241066'
+  alias: Shutdown local server
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - input_button.shutdown_hpbert
+  conditions: []
+  actions:
+  - action: shell_command.shutdown_local_server
+    metadata: {}
+    data: {}
   mode: single
